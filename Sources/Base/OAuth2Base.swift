@@ -25,6 +25,7 @@ import SwiftKeychain
 import SwiftKeychain
 #endif
 
+import CocoaLumberjack
 
 /// Typealias to ease working with JSON dictionaries.
 public typealias OAuth2JSON = [String: AnyObject]
@@ -334,9 +335,7 @@ public class OAuth2Base {
 	Debug logging, will only log if `verbose` is YES.
 	*/
 	public func logIfVerbose(log: String) {
-		if verbose {
-			DDLogError("OAuth2: \(log)")
-		}
+		DDLogDebug("OAuth2: \(log)")
 	}
 }
 
