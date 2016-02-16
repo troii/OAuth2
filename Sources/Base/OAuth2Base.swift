@@ -335,7 +335,7 @@ public class OAuth2Base {
 	*/
 	public func logIfVerbose(log: String) {
 		if verbose {
-			print("OAuth2: \(log)")
+			DDLogError("OAuth2: \(log)")
 		}
 	}
 }
