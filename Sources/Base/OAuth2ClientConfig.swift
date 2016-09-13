@@ -43,7 +43,10 @@ public class OAuth2ClientConfig {
 	
 	/// The receiver's access token.
 	public var accessToken: String?
-	
+
+	/// The receiver's id token.  Used by Google + and AWS Cognito
+	public var idToken: String?
+
 	/// The access token's expiry date.
 	public var accessTokenExpiry: NSDate?
 	
@@ -55,6 +58,9 @@ public class OAuth2ClientConfig {
 	
 	/// The URL to register a client against.
 	public final var registrationURL: NSURL?
+    
+	/// Contains parameters headers.
+	public var authHeaders: OAuth2Headers?
 	
 	/// How the client communicates the client secret with the server. Defaults to ".None" if there is no secret, ".ClientSecretPost" if
 	/// "secret_in_body" is `true` and ".ClientSecretBasic" otherwise. Interacts with the `authConfig.secretInBody` client setting.
@@ -104,17 +110,25 @@ public class OAuth2ClientConfig {
 		if let assume = settings["token_assume_unexpired"] as? Bool {
 			accessTokenAssumeUnexpired = assume
 		}
+		if let headers = settings["headers"] as? OAuth2Headers {
+			authHeaders = headers
+		}
 	}
 	
 	
 	/**
 	Update properties from response data.
 	
+	This method assumes values are present with the standard names, such as `access_token`, and assigns them to its properties.
+	
 	- parameter json: JSON data returned from a request
 	*/
 	func updateFromResponse(json: OAuth2JSON) {
 		if let access = json["access_token"] as? String {
 			accessToken = access
+		}
+		if let idtoken = json["id_token"] as? String {
+			idToken = idtoken
 		}
 		accessTokenExpiry = nil
 		if let expires = json["expires_in"] as? NSTimeInterval {
@@ -159,6 +173,10 @@ public class OAuth2ClientConfig {
 		if let refresh = refreshToken where !refresh.isEmpty {
 			items["refreshToken"] = refresh
 		}
+		if let idtoken = idToken where !idtoken.isEmpty {
+			items["idToken"] = idtoken
+		}
+        
 		return items
 	}
 	
@@ -204,6 +222,10 @@ public class OAuth2ClientConfig {
 			messages.append("Found refresh token")
 			refreshToken = token
 		}
+		if let idtoken = items["idToken"] as? String where !idtoken.isEmpty {
+			messages.append("Found id token")
+			idToken = idtoken
+		}
 		return messages
 	}
 	
@@ -218,6 +240,7 @@ public class OAuth2ClientConfig {
 		accessToken = nil
 		accessTokenExpiry = nil
 		refreshToken = nil
+		idToken = nil
 	}
 }
 

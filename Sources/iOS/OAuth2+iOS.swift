@@ -32,6 +32,7 @@ extension OAuth2 {
 	*/
 	public final func openAuthorizeURLInBrowser(params: OAuth2StringDict? = nil) throws {
 		let url = try authorizeURL(params)
+		logger?.debug("OAuth2", msg: "Opening authorize URL in system browser: \(url)")
 		if !UIApplication.sharedApplication().openURL(url) {
 			throw OAuth2Error.UnableToOpenAuthorizeURL
 		}
@@ -45,9 +46,9 @@ extension OAuth2 {
 	
 	You should use `authorizeEmbeddedFrom(<# view controller #>)`; use this method if you have specific reasons.
 	
+	- throws: Can throw several OAuth2Error if the method is unable to show the authorize screen
 	- parameter config: The configuration to be used; usually uses the instance's `authConfig`
 	- parameter params: Additional authorization parameters to supply during the OAuth dance
-	- throws: Can throw several OAuth2Error if the method is unable to show the authorize screen
 	*/
 	public func authorizeEmbeddedWith(config: OAuth2AuthConfig, params: OAuth2StringDict? = nil) throws {
 		if let controller = config.authorizeContext as? UIViewController {
@@ -91,6 +92,7 @@ extension OAuth2 {
 	@available(iOS 9.0, *)
 	public func authorizeSafariEmbeddedFromViewController(controller: UIViewController, params: OAuth2StringDict? = nil) throws -> SFSafariViewController {
 		let url = try authorizeURL(params)
+		logger?.debug("OAuth2", msg: "Opening authorize URL in embedded Safari: \(url)")
 		return presentSafariViewFor(url, from: controller)
 	}
 	
@@ -161,6 +163,7 @@ extension OAuth2 {
 	*/
 	public func authorizeEmbeddedFromViewController(controller: UIViewController, params: OAuth2StringDict? = nil) throws -> OAuth2WebViewController {
 		let url = try authorizeURL(params)
+		logger?.debug("OAuth2", msg: "Opening authorize URL in embedded browser: \(url)")
 		return presentAuthorizeViewFor(url, intercept: redirect!, from: controller)
 	}
 	
@@ -202,7 +205,7 @@ extension OAuth2 {
 				return true
 			}
 			catch let err {
-				self.logIfVerbose("Cannot intercept redirect URL: \(err)")
+				self.logger?.warn("OAuth2", msg: "Cannot intercept redirect URL: \(err)")
 			}
 			return false
 		}

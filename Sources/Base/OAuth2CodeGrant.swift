@@ -63,7 +63,7 @@ public class OAuth2CodeGrant: OAuth2 {
 		req.params["code"] = code
 		req.params["grant_type"] = self.dynamicType.grantType
 		req.params["redirect_uri"] = redirect
-		req.params["client_id"] = clientConfig.clientId
+		req.params["client_id"] = clientId
 		
 		return req
 	}
@@ -72,7 +72,7 @@ public class OAuth2CodeGrant: OAuth2 {
 	Extracts the code from the redirect URL and exchanges it for a token.
 	*/
 	override public func handleRedirectURL(redirect: NSURL) {
-		logIfVerbose("Handling redirect URL \(redirect.description)")
+		logger?.debug("OAuth2", msg: "Handling redirect URL \(redirect.description)")
 		do {
 			let code = try validateRedirectURL(redirect)
 			exchangeCodeForToken(code)
@@ -92,7 +92,7 @@ public class OAuth2CodeGrant: OAuth2 {
 			}
 			
 			let post = try tokenRequestWithCode(code).asURLRequestFor(self)
-			logIfVerbose("Exchanging code \(code) for access token at \(post.URL!)")
+			logger?.debug("OAuth2", msg: "Exchanging code \(code) for access token at \(post.URL!)")
 			
 			performRequest(post) { data, status, error in
 				do {
@@ -100,9 +100,9 @@ public class OAuth2CodeGrant: OAuth2 {
 						throw error ?? OAuth2Error.NoDataInResponse
 					}
 					
-					let params = try self.parseAccessTokenResponse(data)
+					let params = try self.parseAccessTokenResponseData(data)
 					if status < 400 {
-						self.logIfVerbose("Did exchange code for access [\(nil != self.clientConfig.accessToken)] and refresh [\(nil != self.clientConfig.refreshToken)] tokens")
+						self.logger?.debug("OAuth2", msg: "Did exchange code for access [\(nil != self.clientConfig.accessToken)] and refresh [\(nil != self.clientConfig.refreshToken)] tokens")
 						self.didAuthorize(params)
 					}
 					else {
@@ -129,8 +129,11 @@ public class OAuth2CodeGrant: OAuth2 {
 		guard let expectRedirect = context.redirectURL else {
 			throw OAuth2Error.NoRedirectURL
 		}
+		guard let redir = redirect.absoluteString else {
+			throw OAuth2Error.InvalidRedirectURL(redirect.description)
+		}
 		let comp = NSURLComponents(URL: redirect, resolvingAgainstBaseURL: true)
-		if !redirect.absoluteString.hasPrefix(expectRedirect) && (!redirect.absoluteString.hasPrefix("urn:ietf:wg:oauth:2.0:oob") && "localhost" != comp?.host) {
+		if !redir.hasPrefix(expectRedirect) && (!redir.hasPrefix("urn:ietf:wg:oauth:2.0:oob") && "localhost" != comp?.host) {
 			throw OAuth2Error.InvalidRedirectURL("Expecting «\(expectRedirect)» but received «\(redirect)»")
 		}
 		if let compQuery = comp?.query where compQuery.characters.count > 0 {

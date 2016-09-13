@@ -126,10 +126,6 @@ public class OAuth2AuthRequest {
 	- returns: A mutable NSURLRequest
 	*/
 	public func asURLRequestFor(oauth2: OAuth2) throws -> NSMutableURLRequest {
-		guard let clientId = oauth2.clientId where !clientId.isEmpty else {
-			throw OAuth2Error.NoClientId
-		}
-		
 		var finalParams = params
 		var finalAuthHeader = headerAuthorize
 		
@@ -140,19 +136,26 @@ public class OAuth2AuthRequest {
 		req.setValue(contentType.rawValue, forHTTPHeaderField: "Content-Type")
 		req.setValue("application/json", forHTTPHeaderField: "Accept")
 		
+		// add custom headers
+		if let headerParams = oauth2.authHeaders where !headerParams.isEmpty {
+			for (key, value) in headerParams {
+				req.setValue(value, forHTTPHeaderField: key)
+			}
+		}
+		
 		// handle client secret if there is one
-		if let secret = oauth2.clientConfig.clientSecret {
+		if let clientId = oauth2.clientConfig.clientId where !clientId.isEmpty, let secret = oauth2.clientConfig.clientSecret {
 			
 			// add to request body
 			if oauth2.authConfig.secretInBody {
-				oauth2.logIfVerbose("Adding “client_id” and “client_secret” to request body")
+				oauth2.logger?.debug("OAuth2", msg: "Adding “client_id” and “client_secret” to request body")
 				finalParams["client_id"] = clientId
 				finalParams["client_secret"] = secret
 			}
 			
 			// add Authorization header (if not in body)
 			else if nil == finalAuthHeader {
-				oauth2.logIfVerbose("Adding “Authorization” header as “Basic client-key:client-secret”")
+				oauth2.logger?.debug("OAuth2", msg: "Adding “Authorization” header as “Basic client-key:client-secret”")
 				let pw = "\(clientId.wwwFormURLEncodedString):\(secret.wwwFormURLEncodedString)"
 				if let utf8 = pw.dataUsingEncoding(NSUTF8StringEncoding) {
 					finalAuthHeader = "Basic \(utf8.base64EncodedStringWithOptions([]))"

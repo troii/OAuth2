@@ -30,7 +30,7 @@ public class OAuth2ClientCredentials: OAuth2 {
 		return "client_credentials"
 	}
 	
-	override func doAuthorize(params inParams: OAuth2StringDict? = nil) {
+	public override func doAuthorize(params inParams: OAuth2StringDict? = nil) {
 		self.obtainAccessToken(inParams) { params, error in
 			if let error = error {
 				self.didFail(error)
@@ -49,7 +49,7 @@ public class OAuth2ClientCredentials: OAuth2 {
 	func obtainAccessToken(params: OAuth2StringDict? = nil, callback: ((params: OAuth2JSON?, error: ErrorType?) -> Void)) {
 		do {
 			let post = try tokenRequest(params).asURLRequestFor(self)
-			logIfVerbose("Requesting new access token from \(post.URL?.description ?? "nil")")
+			logger?.debug("OAuth2", msg: "Requesting new access token from \(post.URL?.description ?? "nil")")
 			
 			performRequest(post) { data, status, error in
 				do {
@@ -57,8 +57,8 @@ public class OAuth2ClientCredentials: OAuth2 {
 						throw error ?? OAuth2Error.NoDataInResponse
 					}
 					
-					let params = try self.parseAccessTokenResponse(data)
-					self.logIfVerbose("Did get access token [\(nil != self.clientConfig.accessToken)]")
+					let params = try self.parseAccessTokenResponseData(data)
+					self.logger?.debug("OAuth2", msg: "Did get access token [\(nil != self.clientConfig.accessToken)]")
 					callback(params: params, error: nil)
 				}
 				catch let error {

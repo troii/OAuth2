@@ -45,7 +45,7 @@ public class OAuth2PasswordGrant: OAuth2 {
 		super.init(settings: settings)
 	}
 	
-	override func doAuthorize(params params: [String : String]? = nil) {
+	public override func doAuthorize(params params: [String : String]? = nil) {
 		self.obtainAccessToken(params: params) { params, error in
 			if let error = error {
 				self.didFail(error)
@@ -64,7 +64,7 @@ public class OAuth2PasswordGrant: OAuth2 {
 	func obtainAccessToken(params params: OAuth2StringDict? = nil, callback: ((params: OAuth2JSON?, error: ErrorType?) -> Void)) {
 		do {
 			let post = try tokenRequest(params: params).asURLRequestFor(self)
-			logIfVerbose("Requesting new access token from \(post.URL?.description)")
+			logger?.debug("OAuth2", msg: "Requesting new access token from \(post.URL?.description ?? "nil")")
 			
 			performRequest(post) { data, status, error in
 				do {
@@ -72,9 +72,9 @@ public class OAuth2PasswordGrant: OAuth2 {
 						throw error ?? OAuth2Error.NoDataInResponse
 					}
 					
-					let dict = try self.parseAccessTokenResponse(data)
+					let dict = try self.parseAccessTokenResponseData(data)
 					if status < 400 {
-						self.logIfVerbose("Did get access token [\(nil != self.clientConfig.accessToken)]")
+						self.logger?.debug("OAuth2", msg: "Did get access token [\(nil != self.clientConfig.accessToken)]")
 						callback(params: dict, error: nil)
 					}
 					else {
@@ -82,7 +82,7 @@ public class OAuth2PasswordGrant: OAuth2 {
 					}
 				}
 				catch let error {
-					self.logIfVerbose("Error parsing response: \(error)")
+					self.logger?.debug("OAuth2", msg: "Error parsing response: \(error)")
 					callback(params: nil, error: error)
 				}
 			}
@@ -102,14 +102,14 @@ public class OAuth2PasswordGrant: OAuth2 {
 		if password.isEmpty{
 			throw OAuth2Error.NoPassword
 		}
-		guard let clientId = clientConfig.clientId where !clientId.isEmpty else {
-			throw OAuth2Error.NoClientId
-		}
 		
 		let req = OAuth2AuthRequest(url: (clientConfig.tokenURL ?? clientConfig.authorizeURL))
 		req.params["grant_type"] = self.dynamicType.grantType
 		req.params["username"] = username
 		req.params["password"] = password
+		if let clientId = clientConfig.clientId {
+			req.params["client_id"] = clientId
+		}
 		if let scope = clientConfig.scope {
 			req.params["scope"] = scope
 		}
