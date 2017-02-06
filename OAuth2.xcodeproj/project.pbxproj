@@ -113,6 +113,125 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E24A9F511E4918720067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 18F3BFD71A81E06E00692297;
+			remoteInfo = "CocoaLumberjack-iOS-Static";
+		};
+		E24A9F531E4918720067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19FF46021B8B4CF400B43179;
+			remoteInfo = "CocoaLumberjack-iOS";
+		};
+		E24A9F551E4918720067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DCB3185114EB418E001CFBEE;
+			remoteInfo = "CocoaLumberjack-macOS";
+		};
+		E24A9F571E4918720067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19D90B261BBFA9DB00947169;
+			remoteInfo = "CocoaLumberjack-tvOS";
+		};
+		E24A9F591E4918720067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19190EDE1B84D812008D059E;
+			remoteInfo = "CocoaLumberjack-watchOS";
+		};
+		E24A9F5B1E4918720067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19FF460F1B8B4D1400B43179;
+			remoteInfo = "CocoaLumberjackSwift-iOS";
+		};
+		E24A9F5D1E4918720067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 18F3BF0F1A81D8B700692297;
+			remoteInfo = "CocoaLumberjackSwift-macOS";
+		};
+		E24A9F5F1E4918720067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19D90B351BBFAA7500947169;
+			remoteInfo = "CocoaLumberjackSwift-tvOS";
+		};
+		E24A9F611E4918720067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19190EEB1B84D826008D059E;
+			remoteInfo = "CocoaLumberjackSwift-watchOS";
+		};
+		E24A9F631E4918720067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 18F3BFF21A81E0C700692297;
+			remoteInfo = iOSLibStaticTest;
+		};
+		E24A9F651E4918720067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DCB318CA14ED6C3B001CFBEE;
+			remoteInfo = FmwkTest;
+		};
+		E24A9F671E4918720067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 18F3BF5F1A81DD2E00692297;
+			remoteInfo = iOSSwiftTest;
+		};
+		E24A9F691E4918720067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55CCBEFF19BA679200957A39;
+			remoteInfo = SwiftTest;
+		};
+		E24A9F6B1E4918720067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19406BE11BDBABFF001194DC;
+			remoteInfo = tvOSSwiftTest;
+		};
+		E24A9F6D1E4918720067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19EC14671B84D134000EC2E7;
+			remoteInfo = watchOSSwiftTest;
+		};
+		E24A9F6F1E4918720067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19EC14731B84D134000EC2E7;
+			remoteInfo = "watchOSSwiftTest Extension";
+		};
+		E24A9F761E4919D20067A554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 19FF460E1B8B4D1400B43179;
+			remoteInfo = "CocoaLumberjackSwift-iOS";
+		};
 		EE43B1551951F2440017679A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EEDB861B193FAAE500C4EEA1 /* Project object */;
@@ -163,6 +282,7 @@
 		659854461C5B3BEA00237D39 /* OAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OAuth2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65EC05DF1C9050CB00DE9186 /* OAuth2KeychainAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2KeychainAccount.swift; sourceTree = "<group>"; };
 		DD0CCBAC1C4DC83A0044C4E3 /* OAuth2WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2WebViewController.swift; sourceTree = "<group>"; };
+		E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lumberjack.xcodeproj; path = ../CocoaLumberjack/Lumberjack.xcodeproj; sourceTree = "<group>"; };
 		EA9758171B222CEA007744B1 /* OAuth2PasswordGrant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = OAuth2PasswordGrant.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EE01F96E1C58D5D6003AEA7E /* generate-docs.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "generate-docs.sh"; sourceTree = "<group>"; };
 		EE1391D91AC5B41A002C7B18 /* OAuth2CodeGrantBasicAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = OAuth2CodeGrantBasicAuth.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -257,6 +377,29 @@
 				6598543F1C5B3B4000237D39 /* OAuth2Authorizer+tvOS.swift */,
 			);
 			path = tvOS;
+			sourceTree = "<group>";
+		};
+		E24A9F3F1E4918720067A554 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E24A9F521E4918720067A554 /* libCocoaLumberjack.a */,
+				E24A9F541E4918720067A554 /* CocoaLumberjack.framework */,
+				E24A9F561E4918720067A554 /* CocoaLumberjack.framework */,
+				E24A9F581E4918720067A554 /* CocoaLumberjack.framework */,
+				E24A9F5A1E4918720067A554 /* CocoaLumberjack.framework */,
+				E24A9F5C1E4918720067A554 /* CocoaLumberjackSwift.framework */,
+				E24A9F5E1E4918720067A554 /* CocoaLumberjackSwift.framework */,
+				E24A9F601E4918720067A554 /* CocoaLumberjackSwift.framework */,
+				E24A9F621E4918720067A554 /* CocoaLumberjackSwift.framework */,
+				E24A9F641E4918720067A554 /* iOSLibStaticTest.app */,
+				E24A9F661E4918720067A554 /* FmwkTest.app */,
+				E24A9F681E4918720067A554 /* iOSSwiftTest.app */,
+				E24A9F6A1E4918720067A554 /* SwiftTest.app */,
+				E24A9F6C1E4918720067A554 /* tvOSSwiftTest.app */,
+				E24A9F6E1E4918720067A554 /* watchOSSwiftTest.app */,
+				E24A9F701E4918720067A554 /* watchOSSwiftTest Extension.appex */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		EE2486281AC85DD4002B31AF /* iOS */ = {
@@ -407,6 +550,7 @@
 				65D294B91C57CB47009DA970 /* tvOS */,
 				EEC7A8CD1AE4851E008C30E7 /* SwiftKeychain */,
 				EEDB8627193FAAE500C4EEA1 /* Supporting Files */,
+				E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */,
 			);
 			name = OAuth2;
 			path = Sources;
@@ -498,6 +642,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				E24A9F771E4919D20067A554 /* PBXTargetDependency */,
 			);
 			name = OAuth2iOS;
 			productName = OAuth2;
@@ -583,6 +728,12 @@
 			mainGroup = EEDB861A193FAAE500C4EEA1;
 			productRefGroup = EEDB8625193FAAE500C4EEA1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E24A9F3F1E4918720067A554 /* Products */;
+					ProjectRef = E24A9EA81E49185C0067A554 /* Lumberjack.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				EEE209461942772800736F1A /* OAuth2macOS */,
@@ -592,6 +743,121 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E24A9F521E4918720067A554 /* libCocoaLumberjack.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCocoaLumberjack.a;
+			remoteRef = E24A9F511E4918720067A554 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E24A9F541E4918720067A554 /* CocoaLumberjack.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaLumberjack.framework;
+			remoteRef = E24A9F531E4918720067A554 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E24A9F561E4918720067A554 /* CocoaLumberjack.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaLumberjack.framework;
+			remoteRef = E24A9F551E4918720067A554 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E24A9F581E4918720067A554 /* CocoaLumberjack.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaLumberjack.framework;
+			remoteRef = E24A9F571E4918720067A554 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E24A9F5A1E4918720067A554 /* CocoaLumberjack.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaLumberjack.framework;
+			remoteRef = E24A9F591E4918720067A554 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E24A9F5C1E4918720067A554 /* CocoaLumberjackSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaLumberjackSwift.framework;
+			remoteRef = E24A9F5B1E4918720067A554 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E24A9F5E1E4918720067A554 /* CocoaLumberjackSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaLumberjackSwift.framework;
+			remoteRef = E24A9F5D1E4918720067A554 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E24A9F601E4918720067A554 /* CocoaLumberjackSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaLumberjackSwift.framework;
+			remoteRef = E24A9F5F1E4918720067A554 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E24A9F621E4918720067A554 /* CocoaLumberjackSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaLumberjackSwift.framework;
+			remoteRef = E24A9F611E4918720067A554 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E24A9F641E4918720067A554 /* iOSLibStaticTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = iOSLibStaticTest.app;
+			remoteRef = E24A9F631E4918720067A554 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E24A9F661E4918720067A554 /* FmwkTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = FmwkTest.app;
+			remoteRef = E24A9F651E4918720067A554 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E24A9F681E4918720067A554 /* iOSSwiftTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = iOSSwiftTest.app;
+			remoteRef = E24A9F671E4918720067A554 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E24A9F6A1E4918720067A554 /* SwiftTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwiftTest.app;
+			remoteRef = E24A9F691E4918720067A554 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E24A9F6C1E4918720067A554 /* tvOSSwiftTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = tvOSSwiftTest.app;
+			remoteRef = E24A9F6B1E4918720067A554 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E24A9F6E1E4918720067A554 /* watchOSSwiftTest.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = watchOSSwiftTest.app;
+			remoteRef = E24A9F6D1E4918720067A554 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E24A9F701E4918720067A554 /* watchOSSwiftTest Extension.appex */ = {
+			isa = PBXReferenceProxy;
+			fileType = "wrapper.app-extension";
+			path = "watchOSSwiftTest Extension.appex";
+			remoteRef = E24A9F6F1E4918720067A554 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		659854441C5B3BEA00237D39 /* Resources */ = {
@@ -758,6 +1024,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E24A9F771E4919D20067A554 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CocoaLumberjackSwift-iOS";
+			targetProxy = E24A9F761E4919D20067A554 /* PBXContainerItemProxy */;
+		};
 		EE43B1561951F2440017679A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EEE209461942772800736F1A /* OAuth2macOS */;
@@ -951,6 +1222,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/include";
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -973,6 +1245,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/include";
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

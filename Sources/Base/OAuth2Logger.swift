@@ -18,6 +18,7 @@
 //  limitations under the License.
 //
 
+import CocoaLumberjack
 
 /**
 Logging levels
@@ -93,17 +94,17 @@ extension OAuth2Logger {
 	
 	/** Log a message at the trace level. */
 	public func trace(_ module: String? = "OAuth2", filename: String? = #file, line: Int? = #line, function: String? = #function, msg: @autoclosure() -> String) {
-		log(.trace, module: module, filename: filename, line: line, function: function, msg: msg)
+		DDLogDebug("\(module ?? ""): \(msg())")
 	}
 	
 	/** Standard debug logging. */
 	public func debug(_ module: String? = "OAuth2", filename: String? = #file, line: Int? = #line, function: String? = #function, msg: @autoclosure() -> String) {
-		log(.debug, module: module, filename: filename, line: line, function: function, msg: msg)
-	}
+		DDLogDebug("\(module ?? ""): \(msg())")
+    }
 	
 	/** Log warning messages. */
 	public func warn(_ module: String? = "OAuth2", filename: String? = #file, line: Int? = #line, function: String? = #function, msg: @autoclosure() -> String) {
-		log(.warn, module: module, filename: filename, line: line, function: function, msg: msg)
+		DDLogWarn("\(module ?? ""): \(msg())")
 	}
 }
 
