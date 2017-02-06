@@ -5,6 +5,27 @@ Version numbering represents the Swift version, plus a running number representi
 You can also refer to commit logs to get details on what was implemented, fixed and improved.
 
 
+### x.x.x
+
+- Allow more UI customization via `authConfig.UI` and making `OAuth2Authorizer` friendlier to subclassing
+- Optionally allow `DataLoader` to follow 302 redirects automatically (on same host)
+
+
+### 3.0.2
+
+- Move `secretInBody` and `customParameters` from `authConfig` to `clientConfig`, where they belong
+- Allow to override default UTF-8 encoding of the _Basic_ authorization header
+- Improvements to embedded authorization
+- Remove `onAuthorize` and `onFailure` callbacks, which have been deprecated with 3.0 (now handled in the callback to `authorize()`)
+
+
+### 3.0.1
+
+- Add Azure flow (thanks @everlof)
+- Add `keychain_account_*` settings (thanks @aidzz)
+- Workaround for Safari issue (thanks @everlof)
+
+
 ### 3.0.0
 
 - Rewrite in Swift 3

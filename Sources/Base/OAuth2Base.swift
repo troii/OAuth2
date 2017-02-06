@@ -116,8 +116,8 @@ open class OAuth2Base: OAuth2Securable {
 	
 	/// Custom authorization parameters.
 	public var authParameters: OAuth2StringDict? {
-		get { return clientConfig.authParameters }
-		set { clientConfig.authParameters = newValue }
+		get { return clientConfig.customParameters }
+		set { clientConfig.customParameters = newValue }
 	}
 	
 	
@@ -128,14 +128,6 @@ open class OAuth2Base: OAuth2Securable {
 	public final var isAuthorizing: Bool {
 		return nil != didAuthorizeOrFail
 	}
-	
-	/// Closure called on successful authorization on the main thread.
-	@available(*, deprecated: 3.0, message: "Use the `authorize(params:callback:)` method and variants")
-	public final var onAuthorize: ((_ parameters: OAuth2JSON) -> Void)?
-	
-	/// When authorization fails (if error is not nil) or is cancelled, this block is executed on the main thread.
-	@available(*, deprecated: 3.0, message: "Use the `authorize(params:callback:)` method and variants")
-	public final var onFailure: ((OAuth2Error?) -> Void)?
 	
 	/**
 	Closure called after the regular authorization callback, on the main thread. You can use this callback when you're performing
@@ -158,32 +150,32 @@ open class OAuth2Base: OAuth2Securable {
 	
 	The following settings keys are currently supported:
 	
-	- client_id (string)
-	- client_secret (string), usually only needed for code grant
-	- authorize_uri (URL-string)
-	- token_uri (URL-string), if omitted the authorize_uri will be used to obtain tokens
-	- redirect_uris (list of URL-strings)
-	- scope (string)
+	- client_id (String)
+	- client_secret (String), usually only needed for code grant
+	- authorize_uri (URL-String)
+	- token_uri (URL-String), if omitted the authorize_uri will be used to obtain tokens
+	- redirect_uris (Array of URL-Strings)
+	- scope (String)
 	
-	- client_name (string)
-	- registration_uri (URL-string)
-	- logo_uri (URL-string)
-	- keychain (bool, true by default, applies to using the system keychain)
-	- keychain_access_mode (string, value for keychain kSecAttrAccessible attribute, kSecAttrAccessibleWhenUnlocked by default)
-	- keychain_access_group (string, value for keychain kSecAttrAccessGroup attribute, nil by default)
-	- keychain_account_for_client_credentials(string, "clientCredentials" by default)
-	- keychain_account_for_tokens(string, "currentTokens" by default)
-	- verbose (bool, false by default, applies to client logging)
-	- secret_in_body (bool, false by default, forces the flow to use the request body for the client secret)
-	- token_assume_unexpired (bool, true by default, whether to use access tokens that do not come with an "expires_in" parameter)
+	- client_name (String)
+	- registration_uri (URL-String)
+	- logo_uri (URL-String)
+	
+	- keychain (Bool, true by default, applies to using the system keychain)
+	- keychain_access_mode (String, value for keychain kSecAttrAccessible attribute, kSecAttrAccessibleWhenUnlocked by default)
+	- keychain_access_group (String, value for keychain kSecAttrAccessGroup attribute, nil by default)
+	- keychain_account_for_client_credentials(String, "clientCredentials" by default)
+	- keychain_account_for_tokens(String, "currentTokens" by default)
+	- secret_in_body (Bool, false by default, forces the flow to use the request body for the client secret)
+	- parameters ([String: String], custom request parameters to be added during authorization)
+	- token_assume_unexpired (Bool, true by default, whether to use access tokens that do not come with an "expires_in" parameter)
+	
+	- verbose (Bool, false by default, applies to client logging)
 	*/
 	override public init(settings: OAuth2JSON) {
 		clientConfig = OAuth2ClientConfig(settings: settings)
 		
 		// auth configuration options
-		if let inBody = settings["secret_in_body"] as? Bool {
-			authConfig.secretInBody = inBody
-		}
 		if let ttl = settings["title"] as? String {
 			authConfig.ui.title = ttl
 		}
@@ -202,7 +194,7 @@ open class OAuth2Base: OAuth2Securable {
 		for message in clientConfig.updateFromStorableItems(items) {
 			logger?.debug("OAuth2", msg: message)
 		}
-		authConfig.secretInBody = (clientConfig.endpointAuthMethod == OAuth2EndpointAuthMethod.clientSecretPost)
+		clientConfig.secretInBody = (clientConfig.endpointAuthMethod == OAuth2EndpointAuthMethod.clientSecretPost)
 	}
 	
 	override open func storableCredentialItems() -> [String: Any]? {
@@ -238,7 +230,7 @@ open class OAuth2Base: OAuth2Securable {
 	*/
 	open func request(forURL url: URL, cachePolicy: NSURLRequest.CachePolicy = .reloadIgnoringLocalCacheData) -> URLRequest {
 		var req = URLRequest(url: url, cachePolicy: cachePolicy, timeoutInterval: 20)
-		req.sign(with: self)
+		try? req.sign(with: self)
 		return req
 	}
 	
@@ -267,7 +259,6 @@ open class OAuth2Base: OAuth2Securable {
 			storeTokensToKeychain()
 		}
 		callOnMainThread() {
-			self.onAuthorize?(parameters)
 			self.didAuthorizeOrFail?(parameters, nil)
 			self.didAuthorizeOrFail = nil
 			self.internalAfterAuthorizeOrFail?(false, nil)
@@ -292,7 +283,6 @@ open class OAuth2Base: OAuth2Securable {
 			finalError = OAuth2Error.requestCancelled
 		}
 		callOnMainThread() {
-			self.onFailure?(finalError)
 			self.didAuthorizeOrFail?(nil, finalError)
 			self.didAuthorizeOrFail = nil
 			self.internalAfterAuthorizeOrFail?(true, finalError)
@@ -406,7 +396,7 @@ open class OAuth2Base: OAuth2Securable {
 		try assureCorrectBearerType(dict)
 		try assureRefreshTokenParamsAreValid(dict)
 		
-		clientConfig.updateFromResponse(dict)
+		clientConfig.updateFromResponse(normalizeRefreshTokenResponseKeys(dict))
 		return dict
 	}
 	

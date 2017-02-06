@@ -59,16 +59,33 @@ open class OAuth2ClientConfig {
 	/// The URL to register a client against.
 	public final var registrationURL: URL?
 	
+	/// Whether the receiver should use the request body instead of the Authorization header for the client secret; defaults to `false`.
+	public var secretInBody = false
+	
 	/// How the client communicates the client secret with the server. Defaults to ".None" if there is no secret, ".clientSecretPost" if
-	/// "secret_in_body" is `true` and ".clientSecretBasic" otherwise. Interacts with the `authConfig.secretInBody` client setting.
+	/// "secret_in_body" is `true` and ".clientSecretBasic" otherwise. Interacts with the `secretInBody` setting.
 	public final var endpointAuthMethod = OAuth2EndpointAuthMethod.none
 	
 	/// Contains special authorization request headers, can be used to override defaults.
 	open var authHeaders: OAuth2Headers?
 	
-	/// Custom request parameters to be added during authorization.
-	open var authParameters: OAuth2StringDict?
+	/// Add custom parameters to the authorization request.
+	public var customParameters: [String: String]? = nil
 	
+	/// Most servers use UTF-8 encoding for Authorization headers, but that's not 100% true: make it configurable (see https://github.com/p2/OAuth2/issues/165).
+	open var authStringEncoding = String.Encoding.utf8
+	
+	/// There's an issue with authenticating through 'system browser', where safari says:
+	/// "Safari cannot open the page because the address is invalid." if you first selects 'Cancel' when asked to switch back to "your" app,
+	/// and then you try authenticating again. To get rid of it you must restart Safari.
+	///
+	/// Read more about it here:
+	/// http://stackoverflow.com/questions/27739442/ios-safari-does-not-recognize-url-schemes-after-user-cancels
+	/// https://community.fitbit.com/t5/Web-API/oAuth2-authentication-page-gives-me-a-quot-Cannot-Open-Page-quot-error/td-p/1150391
+	///
+	/// Toggling `safariCancelWorkaround` to true will send an extra get-paramter to make the url unique, thus it will ask again for the new
+	/// url.
+	open var safariCancelWorkaround = false	
 	
 	/**
 	Initializer to initialize properties from a settings dictionary.
@@ -102,7 +119,10 @@ open class OAuth2ClientConfig {
 			redirectURLs = redirs
 			redirect = redirs.first
 		}
-		if let inBody = settings["secret_in_body"] as? Bool, inBody {
+		if let inBody = settings["secret_in_body"] as? Bool {
+			secretInBody = inBody
+		}
+		if secretInBody {
 			endpointAuthMethod = .clientSecretPost
 		}
 		else if nil != clientSecret {
@@ -112,7 +132,7 @@ open class OAuth2ClientConfig {
 			authHeaders = headers
 		}
 		if let params = settings["parameters"] as? OAuth2StringDict {
-			authParameters = params
+			customParameters = params
 		}
 		
 		// access token options

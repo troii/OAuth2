@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C2F5E5B1DE2DB8500F621E0 /* OAuth2CodeGrantAzure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2F5E5A1DE2DB8500F621E0 /* OAuth2CodeGrantAzure.swift */; };
 		6598544E1C5B3C9500237D39 /* OAuth2Authorizer+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6598543F1C5B3B4000237D39 /* OAuth2Authorizer+tvOS.swift */; };
 		6598544F1C5B3C9C00237D39 /* OAuth2Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDB8640193FAB9200C4EEA1 /* OAuth2Base.swift */; };
 		659854501C5B3C9C00237D39 /* OAuth2Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF47D2A1B1E3FDD0057D838 /* OAuth2Requestable.swift */; };
@@ -33,6 +34,9 @@
 		EA97581E1B2242F9007744B1 /* OAuth2PasswordGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9758171B222CEA007744B1 /* OAuth2PasswordGrant.swift */; };
 		EE1391DA1AC5B41A002C7B18 /* OAuth2CodeGrantBasicAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1391D91AC5B41A002C7B18 /* OAuth2CodeGrantBasicAuth.swift */; };
 		EE1391DB1AC5B41A002C7B18 /* OAuth2CodeGrantBasicAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1391D91AC5B41A002C7B18 /* OAuth2CodeGrantBasicAuth.swift */; };
+		EE20118C1E44D0BD00913FA7 /* OAuth2DataLoaderSessionTaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE20118B1E44D0BD00913FA7 /* OAuth2DataLoaderSessionTaskDelegate.swift */; };
+		EE20118D1E44D0BD00913FA7 /* OAuth2DataLoaderSessionTaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE20118B1E44D0BD00913FA7 /* OAuth2DataLoaderSessionTaskDelegate.swift */; };
+		EE20118E1E44D0BD00913FA7 /* OAuth2DataLoaderSessionTaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE20118B1E44D0BD00913FA7 /* OAuth2DataLoaderSessionTaskDelegate.swift */; };
 		EE24862A1AC85DD4002B31AF /* OAuth2WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2486291AC85DD4002B31AF /* OAuth2WebViewController.swift */; };
 		EE2983701D40B83600933CDD /* OAuth2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE29836F1D40B83600933CDD /* OAuth2.swift */; };
 		EE2983711D40B83600933CDD /* OAuth2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE29836F1D40B83600933CDD /* OAuth2.swift */; };
@@ -154,6 +158,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C2F5E5A1DE2DB8500F621E0 /* OAuth2CodeGrantAzure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2CodeGrantAzure.swift; sourceTree = "<group>"; };
 		6598543F1C5B3B4000237D39 /* OAuth2Authorizer+tvOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "OAuth2Authorizer+tvOS.swift"; path = "Sources/tvOS/OAuth2Authorizer+tvOS.swift"; sourceTree = SOURCE_ROOT; };
 		659854461C5B3BEA00237D39 /* OAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OAuth2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65EC05DF1C9050CB00DE9186 /* OAuth2KeychainAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2KeychainAccount.swift; sourceTree = "<group>"; };
@@ -161,6 +166,7 @@
 		EA9758171B222CEA007744B1 /* OAuth2PasswordGrant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = OAuth2PasswordGrant.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EE01F96E1C58D5D6003AEA7E /* generate-docs.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "generate-docs.sh"; sourceTree = "<group>"; };
 		EE1391D91AC5B41A002C7B18 /* OAuth2CodeGrantBasicAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = OAuth2CodeGrantBasicAuth.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		EE20118B1E44D0BD00913FA7 /* OAuth2DataLoaderSessionTaskDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2DataLoaderSessionTaskDelegate.swift; sourceTree = "<group>"; };
 		EE2486291AC85DD4002B31AF /* OAuth2WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2WebViewController.swift; sourceTree = "<group>"; };
 		EE29836A1D3FC28000933CDD /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		EE29836F1D40B83600933CDD /* OAuth2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2.swift; sourceTree = "<group>"; };
@@ -313,6 +319,7 @@
 				EE29836F1D40B83600933CDD /* OAuth2.swift */,
 				EE3174EB1945E83100210E62 /* OAuth2ImplicitGrant.swift */,
 				EE44F691194F2C7D0094AB8B /* OAuth2CodeGrant.swift */,
+				0C2F5E5A1DE2DB8500F621E0 /* OAuth2CodeGrantAzure.swift */,
 				EEACE1DE1A7E8FC1009BF3A7 /* OAuth2CodeGrantFacebook.swift */,
 				EEC6D57B1C2837EA00FA9B1C /* OAuth2CodeGrantLinkedIn.swift */,
 				EE1391D91AC5B41A002C7B18 /* OAuth2CodeGrantBasicAuth.swift */,
@@ -330,6 +337,7 @@
 			children = (
 				EE9EBF121D775A21003263FC /* OAuth2DataLoader.swift */,
 				EE9EBF161D775C59003263FC /* OAuth2DataRequest.swift */,
+				EE20118B1E44D0BD00913FA7 /* OAuth2DataLoaderSessionTaskDelegate.swift */,
 			);
 			path = DataLoader;
 			sourceTree = "<group>";
@@ -545,7 +553,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Pascal Pfiffner";
 				TargetAttributes = {
 					659854451C5B3BEA00237D39 = {
@@ -639,6 +647,7 @@
 				659854561C5B3CA700237D39 /* OAuth2CodeGrantLinkedIn.swift in Sources */,
 				6598545D1C5B3CAB00237D39 /* OAuth2Error.swift in Sources */,
 				EE2983721D40B83600933CDD /* OAuth2.swift in Sources */,
+				EE20118E1E44D0BD00913FA7 /* OAuth2DataLoaderSessionTaskDelegate.swift in Sources */,
 				65EC05E21C9050CB00DE9186 /* OAuth2KeychainAccount.swift in Sources */,
 				6598545C1C5B3CAB00237D39 /* OAuth2DebugURLSessionDelegate.swift in Sources */,
 				6598544E1C5B3C9500237D39 /* OAuth2Authorizer+tvOS.swift in Sources */,
@@ -660,6 +669,7 @@
 				EEACE1DD1A7E8DF7009BF3A7 /* extensions.swift in Sources */,
 				EEC7A8D91AE4851E008C30E7 /* Keychain.swift in Sources */,
 				EEAEF10C1CDBCF28001A1C6F /* OAuth2Logger.swift in Sources */,
+				EE20118D1E44D0BD00913FA7 /* OAuth2DataLoaderSessionTaskDelegate.swift in Sources */,
 				65EC05E11C9050CB00DE9186 /* OAuth2KeychainAccount.swift in Sources */,
 				EE86C4661C48F6AC00B7D486 /* OAuth2CodeGrantNoTokenType.swift in Sources */,
 				EE9EBF1C1D775F74003263FC /* OAuth2Securable.swift in Sources */,
@@ -698,6 +708,7 @@
 				EEC7A8D81AE4851E008C30E7 /* Keychain.swift in Sources */,
 				EEAEF10B1CDBCF28001A1C6F /* OAuth2Logger.swift in Sources */,
 				65EC05E01C9050CB00DE9186 /* OAuth2KeychainAccount.swift in Sources */,
+				0C2F5E5B1DE2DB8500F621E0 /* OAuth2CodeGrantAzure.swift in Sources */,
 				DD0CCBAD1C4DC83A0044C4E3 /* OAuth2WebViewController.swift in Sources */,
 				EE9EBF1B1D775F74003263FC /* OAuth2Securable.swift in Sources */,
 				EE79F65A1BFAA36900746243 /* OAuth2Error.swift in Sources */,
@@ -719,6 +730,7 @@
 				EEACE1D81A7E8DEE009BF3A7 /* OAuth2CodeGrant.swift in Sources */,
 				EE9EBF131D775A21003263FC /* OAuth2DataLoader.swift in Sources */,
 				EE86C4651C48F6AC00B7D486 /* OAuth2CodeGrantNoTokenType.swift in Sources */,
+				EE20118C1E44D0BD00913FA7 /* OAuth2DataLoaderSessionTaskDelegate.swift in Sources */,
 				EEACE1DF1A7E8FC1009BF3A7 /* OAuth2CodeGrantFacebook.swift in Sources */,
 				EEC6D57C1C2837EA00FA9B1C /* OAuth2CodeGrantLinkedIn.swift in Sources */,
 				EE1391DA1AC5B41A002C7B18 /* OAuth2CodeGrantBasicAuth.swift in Sources */,
@@ -783,6 +795,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -808,6 +821,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -844,8 +858,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -894,8 +910,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -928,7 +946,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -950,7 +968,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
